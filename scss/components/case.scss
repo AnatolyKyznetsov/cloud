@@ -1,0 +1,52 @@
+.case {
+    border-radius: var(--radius-standard);
+    background: #{ColorOverlay( #{HexToRGBA($color-main-darkness, 0.9)} )};
+    max-width: 230px;
+
+    &__img {
+        height: 155px;
+        width: 100%;
+        background: var(--color-main-darkness);
+        border-radius: var(--radius-standard) var(--radius-standard) 0 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    &__body {
+        padding: 22px 16px 16px 24px;
+    }
+
+    &__text {
+        font-size: 13px;
+        font-weight: 300;
+        line-height: 1.16;
+    }
+
+    &__link {
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-conv-light);
+        padding-left: 2px;
+        margin: 7px 3px 0px auto;
+        transition: .2s linear;
+
+        img {
+            transform: rotate(-90deg);
+        }
+
+        &:hover {
+            background: var(--color-conv-dark);
+        }
+    }
+}

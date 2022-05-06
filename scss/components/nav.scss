@@ -1,0 +1,45 @@
+.nav {
+    display: flex;
+    align-items: center;
+
+    &__item {
+        &_login {
+            display: flex;
+            align-items: center;
+
+            &:before {
+                content: '';
+                margin-right: 30px;
+                width: 1px;
+                height: 12px;
+                background: var(--color-main-middle);
+            }
+
+            &:after {
+                content: '';
+                margin-left: 9px;
+                min-width: 18px;
+                width: 18px;
+                height: 18px;
+                background: url('../images/icons/door.svg') no-repeat center;
+            }
+
+            .nav__link:hover {
+                color: var(--color-main-middle);
+            }
+        }
+
+        &:not(:last-child) {
+            margin-right: 30px;
+        }
+    }
+
+    &__link {
+        color: var(--color-white);
+        font-size: 14px;
+
+        &:hover {
+            color: var(--color-conv-light);
+        }
+    }
+}

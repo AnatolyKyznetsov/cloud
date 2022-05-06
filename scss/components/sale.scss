@@ -1,0 +1,14 @@
+.sale {
+    background: var(--color-main-darkness);
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    &__wrapper {
+        max-height: 310px;
+    }
+
+    &__banner {
+        width: auto !important;
+    }
+}

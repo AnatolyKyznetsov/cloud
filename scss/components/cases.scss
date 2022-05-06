@@ -1,0 +1,80 @@
+.cases {
+    padding: 52px 0;
+    background: var(--color-main-darkness) url('../images/cases.png') no-repeat top center / cover;
+
+    .container {
+        position: relative;
+    }
+
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        gap: 32;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        margin-bottom: 50px;
+    }
+
+    &__tabs {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &__tab {
+        @extend .button;
+
+        opacity: 0.3;
+        background: transparent;
+        color: var(--color-white);
+        border: 1px solid var(--color-white);
+        min-width: 256px;
+
+        &:before {
+            content: '';
+            display: block;
+            width: 28px;
+            min-width: 28px;
+            height: 37px;
+            margin-right: 20px;
+        }
+
+        &[data-name="business"]:before {
+            background: url('../images/icons/building.svg') no-repeat center;
+        }
+
+        &[data-name="house"]:before {
+            background: url('../images/icons/house.svg') no-repeat center;
+        }
+
+        &:hover,
+        &.is-active {
+            opacity: 1;
+        }
+    }
+
+    &__slider {
+        max-width: 1030px;
+        margin: 0 auto;
+    }
+
+    &__scroll {
+        width: 25px;
+        height: 47px;
+        color: var(--color-white);
+        bottom: 260px;
+        top: auto;
+
+        &.swiper-button-prev {
+            left: 5px;
+        } 
+
+        &.swiper-button-next {
+            right: 5px;
+        } 
+
+        &.swiper-button-disabled {
+            opacity: 0.3;
+        }
+    }
+}

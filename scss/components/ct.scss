@@ -1,0 +1,43 @@
+.ct-series-a .ct-bar,
+.ct-series-a .ct-line,
+.ct-series-a .ct-point,
+.ct-series-a .ct-slice-donut {
+    stroke: var(--color-white);
+}
+
+.ct-series-b .ct-bar,
+.ct-series-b .ct-line,
+.ct-series-b .ct-point,
+.ct-series-b .ct-slice-donut {
+    stroke: var(--color-conv-light);
+}
+
+.ct-label {
+    fill: #{HexToRGBA($color-main-dark, 0.3)};
+    color: #{HexToRGBA($color-main-dark, 0.3)};
+    font-size: 14px;
+}
+
+.ct-grid {
+    stroke: #{HexToRGBA($color-conv-light, 0.5)};
+    stroke-dasharray: 0px;
+}
+
+.ct-label.ct-horizontal.ct-end {
+    padding-top: 20px;
+    margin-top: 20px;
+    position: relative;
+    white-space: nowrap;
+
+    &:before {
+        content: '';
+        display: block;
+        width: calc(100% + 3px);
+        height: 4px;
+        background: var(--color-white);
+        position: absolute;
+        border-radius: 3px;
+        top: 0;
+        left: 0;
+    }
+}

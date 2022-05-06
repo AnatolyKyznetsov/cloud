@@ -1,0 +1,27 @@
+.programm {
+    padding: 163px 0px 149px;
+    background: var(--color-main-darkness) url('../images/programm.png') no-repeat center / cover;
+
+    &__lettering {
+        font-size: 24px;
+        font-weight: 300;
+        opacity: 0.3;
+        margin-bottom: 15px;
+    }
+
+    &__wrapper {
+        max-width: 480px;
+    }
+
+    &__button {
+        margin-top: 47px;
+        max-width: 278px;
+    }
+
+    &__text {
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-top: 17px;
+    }
+}

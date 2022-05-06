@@ -1,0 +1,46 @@
+.markets {
+    padding: 25px 0;
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__link {
+        &:hover {
+            img {
+                filter: grayscale(0);
+            }
+        }
+    }
+
+    &__image {
+        transition: .3s linear;
+        filter: grayscale(100%);
+        height: auto;
+
+        &_dssl {
+            max-width: 192px;
+            width: 100%;
+        }
+
+        &_ozon {
+            max-width: 102px;
+        }
+
+        &_wildberries {
+            max-width: 192px;
+        }
+
+        &_ymarket {
+            max-width: 230px;
+        }
+
+        &_sber {
+            max-width: 178px;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+.select2 {
+    width: 208px !important;
+
+    .select2-selection--single {
+        border: 1px solid var(--color-white);
+        background-color: var(--color-main-darkness);
+        border-radius: var(--radius-standard);
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 30px 14px 20px;
+
+        .select2-selection__rendered {
+            color: var(--color-white);
+            padding-left: 0;
+        }
+
+        .select2-selection__arrow {
+            height: 7px;
+            width: 12px;
+            min-width: 12px;
+            position: static;
+            background: url('../images/icons/angle_white.svg') no-repeat center;
+
+            b {
+                display: none !important;
+            }
+        }
+    }
+
+    &-dropdown {
+        border: 1px solid var(--color-white);
+        background-color: var(--color-main-darkness);
+        color: var(--color-white);
+        border-radius: var(--radius-standard);
+
+        .select2-results__options {
+            padding-bottom: 14px;
+        }
+
+        .select2-results__option {
+            background: transparent !important;
+            padding-left: 20px;
+            padding-right: 30px;
+
+            &--highlighted {
+                color: var(--color-conv-light) !important;
+            }
+        }
+    }
+
+    &.select2-container {
+        &--open {
+            .select2-selection__arrow {
+                transform: rotate(180deg);
+            }
+
+            &.select2-container--below {
+                .select2-selection--single {
+                    border-bottom: none !important;
+                }
+            }
+
+            &.select2-container--above {
+                .select2-selection--single {
+                    border-top: none !important;
+                }
+            }
+        }
+    }
+}

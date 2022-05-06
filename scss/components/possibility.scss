@@ -1,0 +1,115 @@
+.possibility {
+    padding: 78px 0px 57px;
+
+    &__title {
+        color: var(--color-main-darkness);
+    }
+
+    &__wrapper {
+        padding: 83px 90px 223px;
+        margin-top: 63px;
+        background: var(--color-main-darkness) url('../images/possibility_bg.png') no-repeat center / contain;
+        border-radius: var(--radius-standard);
+    }
+
+    &__tabs {
+        margin-bottom: 36px;
+        display: flex;
+        gap: 457px;
+    }
+
+    &__tab {
+        @extend .button;
+
+        // opacity: 0.3;
+        display: inline-flex;
+        height: 40px;
+        background: transparent;
+        color: var(--color-white);
+        border: 1px solid var(--color-white);
+        min-width: none;
+        padding: 0 14px;
+        font-size: 14px;
+        pointer-events: none;
+
+        &:hover,
+        &.is-active {
+            opacity: 1;
+        }
+    }
+
+    &__inner {
+        display: flex;
+        align-items: flex-start;
+        gap: 188px;
+    }
+
+    &__block {
+        max-width: 379px;
+    }
+
+    &__list {
+        margin-top: 50px;
+    }
+
+    &__item {
+        display: flex;
+        align-items: flex-start;
+
+        &:not(:last-child) {
+            margin-bottom: 27px;
+        }
+    }
+
+    &__icon {
+        border: 1px solid #{HexToRGBA($color-white, 0.3)};
+        border-radius: var(--radius-small);
+        min-width: 39px;
+        width: 39px;
+        height: 39px;
+        margin-right: 23px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &_counter {
+            position: relative;
+
+            &:before {
+                content: '2';
+                display: block;
+                font-size: 12px;
+                font-weight: 700;
+                width: 20px;
+                height: 20px;
+                background: var(--color-conv-light);
+                border-radius: 100%;
+                position: absolute;
+                right: -10px;
+                top: -10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+        img {
+            max-width: 30px;
+            height: auto;
+        }
+    }
+
+    &__contnent {
+        line-height: 1.15;
+        font-size: 14px;
+        color: #{HexToRGBA($color-white, 0.3)};
+    }
+
+    &__name {
+        margin-bottom: 1px;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--color-white);
+    }
+}

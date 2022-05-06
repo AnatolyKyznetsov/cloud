@@ -1,0 +1,52 @@
+@function HexToRGBA($hex, $alpha) { // #{HexToRGBA($color-main-darkness, 0.3)}
+    @return rgba(red($hex), green($hex), blue($hex), $alpha);
+}
+
+@function ColorOverlay($color) { // #{ColorOverlay( #{HexToRGBA($color-conv-light, 0.5)} )}
+    @return linear-gradient(to top, $color, $color), url('../images/white_substrate.svg');
+}
+
+// Colors
+$color-white: #FFFFFF;
+
+$color-main-light: #D8D8D8;
+$color-main-middle: #AEA490;
+$color-main-dark: #27241F;
+$color-main-darkness: #050404;
+
+$color-conv-light: #2D89EF;
+$color-conv-dark: #0864C9;
+
+$color-error: #EF502D;
+
+// Media
+$xxl: 1900px;
+$xl: 1790px;
+$lg: 1380px;
+$md: 992px;
+$sm: 576px;
+
+:root {
+    // Fonts
+    --font-main: "Roboto", sans-serif;
+
+    --font-weight-standard: 300;
+
+    // Colors
+    --color-white: #FFFFFF;
+
+    --color-main-light: #D8D8D8;
+    --color-main-middle: #AEA490;
+    --color-main-dark: #27241F;
+    --color-main-darkness: #050404;
+
+    --color-conv-light: #2D89EF;
+    --color-conv-dark: #0864C9;
+
+    --color-error: #EF502D;
+
+    // Borer radius
+    --radius-small: 10px;
+    --radius-standard: 20px;
+    --radius-large: 36px;
+}

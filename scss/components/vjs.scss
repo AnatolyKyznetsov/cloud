@@ -1,0 +1,21 @@
+.video {
+    .vjs-poster {
+        background-size: auto;
+        border-radius: var(--radius-standard);
+    }
+
+    .vjs-big-play-button {
+        height: 100px;
+        width: 100px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        border: none;
+        background: transparent url('../images/icons/video_play.svg') no-repeat center !important;
+
+        .vjs-icon-placeholder {
+            display: none;
+        }
+    }
+}
