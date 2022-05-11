@@ -976,14 +976,23 @@ p {
   width: 100%;
   position: fixed;
   top: 0;
-  right: 0;
   bottom: 0;
+  right: -414px;
   overflow: auto;
   z-index: 10;
   padding: 40px 49px;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  pointer-events: none;
+  transition: 0.2s linear;
   display: none;
+}
+.feedback.is-active {
+  right: 0;
+  pointer-events: auto;
+}
+.feedback.is-visible {
+  display: block;
 }
 .feedback::-webkit-scrollbar {
   width: 0;
