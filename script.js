@@ -193,23 +193,21 @@ const initModal = () => {
         });
     });
 
-    // document.addEventListener('click', e => {
-    //     console.log(e.target.classList.contains('js-openModal'));
-    //     console.log(e.target.closest('.js-modal'));
+    document.addEventListener('click', e => {
 
-    //     if (e.target.closest('.js-modal') ||
-    //         e.target.classList.contains('js-openModal')) {
-    //         let blocks = document.querySelectorAll('.js-modal');
+        if (!e.target.closest('.js-modal') &&
+            !e.target.classList.contains('js-openModal')) {
+            let blocks = document.querySelectorAll('.js-modal');
 
-    //         blocks.forEach(block => {
-    //             setTimeout(() => {
-    //                 block.classList.remove('is-active');
-    //             }, 300);
+            blocks.forEach(block => {
+                setTimeout(() => {
+                    block.classList.remove('is-visible');
+                }, 300);
 
-    //             block.classList.remove('is-visible');
-    //         });
-    //     }
-    // });
+                block.classList.remove('is-active');
+            });
+        }
+    });
 }
 
 const initCharts = () => {
