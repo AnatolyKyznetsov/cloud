@@ -14,27 +14,73 @@ const saleSlider = new Swiper('.js-saleSlider', {
     slidesPerView: 'auto',
 });
 
-const casesSliders = document.querySelectorAll('.js-casesSlider')
+const casesSliders = document.querySelectorAll('.js-casesSlider');
 
 casesSliders.forEach(item => {
-    new Swiper(item, {
+    let next = item.parentNode.querySelector('.js-casesScrollNext'),
+        prev = item.parentNode.querySelector('.js-casesScrollPrev');
+
+    let slider = new Swiper(item, {
         slidesPerView: 4,
         slidesPerGroup: 1,
         spaceBetween: 30,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+    });
+
+    next.addEventListener('click', () => {
+        slider.slideNext();
+    });
+
+    prev.addEventListener('click', () => {
+        slider.slidePrev();
+    });
+
+    slider.on('slideChange', (e) => {
+        if (slider.isBeginning) {
+            next.classList.remove('is-disabled');
+            prev.classList.add('is-disabled');
+        }
+
+        if (slider.isEnd) {
+            next.classList.add('is-disabled');
+            prev.classList.remove('is-disabled');
+        }
     });
 });
+
+const tabs = document.querySelectorAll('.js-tabs');
+
+tabs.forEach(block => {
+    let tab = block.querySelectorAll('.js-tab');
+
+    tab.forEach(item => {
+        item.addEventListener('click', () => {
+            let name = item.dataset.name,
+                content = block.querySelectorAll('.js-tabsContent');
+
+            content.forEach(elem => {
+                elem.classList.add('is-hidden');
+
+                if (elem.dataset.name == name) {
+                    elem.classList.remove('is-hidden');
+                }
+            });
+
+            tab.forEach(elem => {
+                elem.classList.remove('is-active');
+            });
+
+            item.classList.add('is-active');
+        });
+    })
+})
 
 const faqSlider = new Swiper('.js-faqSlider', {
     slidesPerView: 5,
     slidesPerGroup: 1,
     spaceBetween: 20,
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.js-faqScrollNext',
+        prevEl: '.js-faqScrollPrev',
     },
 });
 
@@ -116,22 +162,6 @@ faqSlides.forEach(slide => {
 });
 initVideo();
 
-const tabs = document.querySelectorAll('.js-tabs');
-
-tabs.forEach(item => {
-    let tab = item.querySelectorAll('.js-tab');
-
-    tab.forEach(block => {
-        block.addEventListener('click', () => {
-            tab.forEach(elem => {
-                elem.classList.remove('is-active');
-            });
-
-            block.classList.add('is-active');
-        });
-    });
-});
-
 // let data = {
 //     labels: ['1 год', '2 года', '3 года', '4 года', '5 лет'],
 //     series: [
@@ -155,3 +185,7 @@ tabs.forEach(item => {
 // };
 
 // new Chartist.Line('.ct-chart', data, options);
+
+document.addEventListener('DOMContentLoaded', () => {
+
+});

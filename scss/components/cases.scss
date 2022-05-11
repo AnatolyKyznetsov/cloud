@@ -56,6 +56,10 @@
     &__slider {
         max-width: 1030px;
         margin: 0 auto;
+
+        &.is-hidden {
+            display: none;
+        }
     }
 
     &__scroll {
@@ -73,8 +77,9 @@
             right: 5px;
         } 
 
-        &.swiper-button-disabled {
+        &.is-disabled {
             opacity: 0.3;
+            pointer-events: none;
         }
     }
 }

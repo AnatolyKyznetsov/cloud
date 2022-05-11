@@ -1,7 +1,9 @@
 .case {
     border-radius: var(--radius-standard);
     background: #{ColorOverlay( #{HexToRGBA($color-main-darkness, 0.9)} )};
-    max-width: 230px;
+    max-width: 235px;
+    height: auto !important;
+    user-select: none;
 
     &__img {
         height: 155px;
@@ -27,6 +29,7 @@
         font-size: 13px;
         font-weight: 300;
         line-height: 1.16;
+        min-height: 227px;
     }
 
     &__link {

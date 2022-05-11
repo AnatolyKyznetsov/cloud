@@ -1,0 +1,35 @@
+.input {
+    background: var(--color-main-darkness);
+    border: 1px solid var(--color-white);
+    border-radius: var(--radius-standard);
+    width: 100%;
+    font-weight: 300;
+    font-size: 14px;
+    outline: none;
+    height: 50px;
+    padding: 15px 25px 16px;
+    color: var(--color-white);
+    transition: .1s linear;
+    font-family: var(--font-main);
+
+    @include placeholder() {
+        font-family: var(--font-main);
+        font-weight: 300;
+        font-size: 14px !important;
+        color: #{HexToRGBA($color-white, 0.3)};
+    }
+
+    &.error {
+        border: 1px solid var(--color-error);
+        color: var(--color-error);
+    }
+
+    &[readonly],
+    &[disabled] {
+        background: var(--color-main-light);
+        border: 1px solid var(--color-main-middle);
+        color: var(--color-main-middle);
+        cursor: default;
+        pointer-events: none;
+    }
+}

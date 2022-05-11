@@ -1,0 +1,66 @@
+.custom-input {
+    cursor: pointer;    
+    display: inline-flex;
+    align-items: center;
+
+    input {
+        pointer-events: none;
+        width: 0;
+        height: 0;
+        margin: 0;
+        opacity: 0;
+
+        &[type="radio"] {
+            &+ .custom-input__item {
+                width: 25px;
+                height: 25px;
+                border-radius: 100%;
+                border: 1px solid var(--color-white);
+                position: relative;
+                margin-right: 12px;
+            }
+        }
+
+        &[type="radio"]:checked {
+            &+ .custom-input__item {
+                border: 5px solid var(--color-conv-dark);
+            }
+        }
+
+        &[type="checkbox"] {
+            &+ .custom-input__item {
+                width: 25px;
+                height: 25px;
+                border-radius: 5px;
+                border: 1px solid var(--color-white);
+                position: relative;
+                margin-right: 12px;
+            }
+        }
+
+        &[type="checkbox"]:checked {
+            &+ .custom-input__item {
+                border: 1px solid var(--color-conv-light);
+                background: var(--color-conv-light) url('../images/icons/check.svg') no-repeat center;
+            }
+        }
+    }
+
+
+    &:hover {
+        .custom-input__item {
+            border-color: var(--color-conv-dark) !important;
+        }
+    }
+
+    &__title {
+        color: var(--color-white);
+        font-family: var(--font-main);
+        font-size: 17px;
+        font-weight: 300;
+    }
+
+    &__item {
+        transition: .1s linear;
+    }
+}
