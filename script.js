@@ -253,6 +253,7 @@ const comparisonCalcInit = () => {
             input = item.querySelector('input');
 
         input.addEventListener('input', () => {
+            input.value = input.value == 0 ? 1 : input.value;
             input.value = input.value.replace(/[^\d]/g,'');
         });
 
@@ -261,7 +262,7 @@ const comparisonCalcInit = () => {
         });
 
         minus.addEventListener('click', () => {
-            input.value = input.value - 1 <= 0 ? 0 : input.value - 1;
+            input.value = input.value - 1 <= 1 ? 1 : input.value - 1;
         });
     });
 
