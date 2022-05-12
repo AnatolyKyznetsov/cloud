@@ -1,0 +1,79 @@
+.equipment {
+    padding: 68px 0px 25px;
+
+    &__title {
+        color: var(--color-main-darkness);
+    }
+
+    &__wrapper {
+        margin-top: 50px;
+        display: flex;
+        gap: 47px;
+    }
+
+    &__card {
+        padding: 29px;
+        min-width: 254px;
+        width: 254px;
+        height: 344px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background-color: var(--color-main-darkness);
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: var(--radius-standard);
+        font-weight: 300;
+        font-size: 16px;
+        position: relative;
+    }
+
+    &__card-inner {
+        padding-right: 42px;
+    }
+
+    &__card-name {
+        margin-bottom: 9px;
+
+        span {
+            font-weight: 500;
+            display: block;
+        }
+    }
+
+    &__card-link {
+        @extend .circle-link;
+
+        position: absolute;
+        right: 29px;
+        bottom: 29px;
+    }
+
+    &__shop {
+        border-radius: var(--radius-standard);
+        background: var(--color-conv-light);
+        padding: 37px;
+        min-width: 254px;
+        width: 254px;
+        height: 344px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    &__shop-text {
+        margin-bottom: 20px;
+        font-weight: 300;
+        font-size: 24px;
+    }
+
+    &__shop-link {
+        color: var(--color-white);
+        font-size: 18px;
+        font-weight: 400;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}

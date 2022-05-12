@@ -1,0 +1,141 @@
+.comparison {
+    padding: 68px 0px 90px;
+
+    &__title {
+        color: var(--color-main-darkness);
+    }
+
+    &__subtitle {
+        color: var(--color-main-darkness);
+        font-weight: 300;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    &__calc-wrapper {
+        position: relative;
+    }
+
+    &__calc {
+        margin-top: 54px;
+        padding: 65px 74px 56px 432px;
+        background: url('../images/comparison.png') no-repeat top center;
+        border-radius: var(--radius-standard);
+
+        &.is-hidden {
+            display: none;
+        }
+    }
+
+    &__calc-result {
+        margin-top: 54px;
+        padding: 65px 74px 56px;
+        background: var(--color-main-darkness);
+        border-radius: var(--radius-standard);
+        display: flex;
+        gap: 120px;
+
+        .link {
+            font-size: 14px;
+        }
+
+        &.is-hidden {
+            display: none;
+        }
+    }
+
+    &__wrapper {
+        max-width: 315px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    &__text-block {
+        font-size: 13px;
+        font-weight: 300;
+
+        h4 {
+            margin-bottom: 24px;
+        }
+
+        p {
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+        }
+    }
+
+    &__result {
+        width: 100%;
+        max-width: 502px;
+    }
+
+    &__chart {
+        height: 280px;
+        margin-top: 20px;
+    }
+
+    &__calculation {
+        margin-top: 32px;
+    }
+
+    &__calculation-line {
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        &:first-child {
+            margin-bottom: 16px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        &:not(:first-child) {
+            .comparison__calculation-item {
+                &:not(:first-child) {
+                    font-size: 15px;
+                    font-weight: 300;
+                    width: 117px;
+                    margin-right: 57px;
+                    height: 29px;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0 12px;
+                    border: 1px solid var(--color-white);
+                    border-radius: var(--radius-standard);
+                }
+
+                &:last-child {
+                    border: 1px solid var(--color-conv-light);
+                }
+            }
+        }
+    }
+
+    &__calculation-item {
+        margin-right: 50px;
+        max-width: 124px;
+
+        &:first-child {
+            font-weight: 200;
+            font-size: 12px;
+            margin-right: 65px;
+            max-width: 60px;
+            width: 100%;
+            text-align: right;
+        }
+
+        &:last-child {
+            margin-right: 0px;
+            max-width: none;
+            color: var(--color-conv-light);
+        }
+    }
+}

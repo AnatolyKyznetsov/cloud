@@ -194,7 +194,6 @@ const initModal = () => {
     });
 
     document.addEventListener('click', e => {
-
         if (!e.target.closest('.js-modal') &&
             !e.target.classList.contains('js-openModal')) {
             let blocks = document.querySelectorAll('.js-modal');
@@ -233,7 +232,110 @@ const initCharts = () => {
         }
     };
 
-    new Chartist.Line('.ct-chart', data, options);
+    new Chartist.Line('.js-comparisonChart', data, options);
+}
+
+const comparisonCalcInit = () => {
+    let calc = document.querySelector('.js-comparisonCalc');
+
+    if (!calc) {
+        return false;
+    }
+
+    let calculatorCounters = calc.querySelectorAll('.js-calculatorCounter'),
+        comparisonCalcResult = calc.parentNode.querySelector('.js-comparisonCalcResult'),
+        preloader = calc.parentNode.querySelector('.preloader'),
+        calcReset = comparisonCalcResult.querySelector('.js-calcReset');
+
+    calculatorCounters.forEach(item => {
+        let plus = item.querySelector('.js-calculatorCounterPluse'),
+            minus = item.querySelector('.js-calculatorCounterMinus'),
+            input = item.querySelector('input');
+
+        input.addEventListener('input', () => {
+            input.value = input.value.replace(/[^\d]/g,'');
+        });
+
+        plus.addEventListener('click', () => {
+            input.value++;
+        });
+
+        minus.addEventListener('click', () => {
+            input.value = input.value - 1 <= 0 ? 0 : input.value - 1;
+        });
+    });
+
+    $('.js-resolutionRange').ionRangeSlider({
+        skin: 'round',
+        grid: true,
+        hide_min_max: true,
+        values: ['2Мп', '4Мп', '5Мп', '6Мп', '8Мп', '12Мп'],
+        onFinish: e => {
+            $('.js-resolutionRange').parent().find('input').val(e.from_value);
+        }
+    });
+
+    $('.js-qualityRange').ionRangeSlider({
+        skin: 'round',
+        grid: true,
+        hide_min_max: true,
+        values: ['Низкое', 'Среднее', 'Высокое'],
+        onFinish: e => {
+            $('.js-qualityRange').parent().find('input').val(e.from_value);
+        }
+    });
+
+    let calculatorArchive = calc.querySelector('.js-calculatorArchive'),
+        calculatorArchiveValue = calculatorArchive.parentNode.querySelector('input'),
+        calculatorArchiveItems = calculatorArchive.querySelectorAll('.js-calculatorArchiveItem');
+
+    calculatorArchiveItems.forEach(item => {
+        item.addEventListener('click', () => {
+            calculatorArchiveItems.forEach(elem => {
+                elem.classList.remove('is-active');
+            });
+
+            item.classList.add('is-active');
+            calculatorArchiveValue.value = item.textContent.trim();
+        });
+    });
+
+    $('.js-calcSelect').select2({
+        minimumResultsForSearch: Infinity,
+    });
+
+    let calculatorSubmit = calc.querySelector('.js-calculatorSubmit');
+
+    calculatorSubmit.addEventListener('click', () => {
+
+        let data = {
+            resolution: calc.querySelector('[data-calc="resolution"]').value,
+            quality: calc.querySelector('[data-calc="quality"]').value,
+            archive: calc.querySelector('[data-calc="archive"]').value,
+            object_type: calc.querySelector('[data-calc="object_type"]').value,
+            objects_amount: calc.querySelector('[data-calc="objects_amount"]').value,
+            cameras_per_object: calc.querySelector('[data-calc="cameras_per_object"]').value,
+        };
+
+        console.log(data);
+
+        preloader.classList.remove('is-hidden');
+
+        setTimeout(() => {
+            calc.classList.add('is-hidden');
+            comparisonCalcResult.classList.remove('is-hidden');
+            initCharts();
+        }, 500);
+
+        setTimeout(() => {
+            preloader.classList.add('is-hidden');
+        }, 1000);
+    });
+
+    calcReset.addEventListener('click', () => {
+        calc.classList.remove('is-hidden');
+        comparisonCalcResult.classList.add('is-hidden');
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -244,5 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
     faqSliderInit();
     initPlayers();
     initModal();
-    // initCharts();
+
+    comparisonCalcInit();
 });
+

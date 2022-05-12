@@ -33,23 +33,8 @@
     }
 
     &__link {
-        width: 30px;
-        height: 30px;
-        border-radius: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--color-conv-light);
-        padding-left: 2px;
+        @extend .circle-link;
+
         margin: 7px 3px 0px auto;
-        transition: .2s linear;
-
-        img {
-            transform: rotate(-90deg);
-        }
-
-        &:hover {
-            background: var(--color-conv-dark);
-        }
     }
 }

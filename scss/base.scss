@@ -41,6 +41,11 @@ h3 {
     font-weight: 300;
 }
 
+h4 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
 p {
     margin: 0;
 }
@@ -57,7 +62,35 @@ p {
 }
 
 .link {
+    color: var(--color-conv-light);
 
+    &:hover {
+        color: var(--color-conv-dark);
+    }
+}
+
+.circle-link {
+    width: 34px;
+    display: block;
+
+    &:after {
+        content: '';
+        width: 34px;
+        height: 34px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-conv-light) url('../images/icons/angle_white.svg') no-repeat 10px 14px;
+        transition: .2s linear;
+        transform: rotate(-90deg);
+    }
+
+    &:hover {
+        &:after {
+            background-color: var(--color-conv-dark);
+        }
+    }
 }
 
 .dni {
@@ -66,4 +99,46 @@ p {
 
 .custom-select {
     opacity: 0;
+}
+
+.irs--round .irs-line {
+    cursor: pointer;
+}
+
+.irs--round.irs-with-grid {
+    height: 70px;
+}
+
+.irs-grid-pol,
+.irs-single {
+    display: none;
+}
+
+.irs--round .irs-bar {
+    background: linear-gradient(90deg, #FFFFFF 5.43%, #2D89EF 100%);
+    height: 5px;
+}
+
+.irs-handle.single {
+    width: 20px;
+    height: 20px;
+    background: var(--color-conv-light) !important;
+    top: 28px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 0px 8px rgba(45, 137, 239, 0.6);
+}
+
+.irs--round .irs-grid-text {
+    font-size: 18px;
+    color: var(--color-white);
+    opacity: 0.3;
+
+    &.js-grid-text-0 {
+        transform: translate(25%);
+    }
+
+    &:last-child {
+        transform: translate(-25%);
+    }
 }

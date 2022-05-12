@@ -58,30 +58,14 @@
     }
 
     &__link {
+        @extend .circle-link;
+
+        width: auto;
         display: flex;
         align-items: center;
         gap: 14px;
         font-size: 18px;
         color: var(--color-white);
-
-        &:after {
-            content: '';
-            width: 34px;
-            height: 34px;
-            border-radius: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--color-conv-light) url('../images/icons/angle_white.svg') no-repeat 10px 14px;
-            transition: .2s linear;
-            transform: rotate(-90deg);
-        }
-
-        &:hover {
-            &:after {
-                background-color: var(--color-conv-dark);
-            }
-        }
     }
 
 }
