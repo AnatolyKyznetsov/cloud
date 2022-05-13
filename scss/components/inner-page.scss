@@ -7,8 +7,18 @@
 
     &__image {
         width: auto;
-        margin-left: -15px;
-        margin-right: -15px;
-        max-width: calc(100% + 30px);
+        margin-left: -60px;
+        margin-right: -60px;
+        max-width: calc(100% + 120px);
+    }
+}
+
+@media screen and (max-width: $sm) {
+    .inner-page {
+        &__image {
+            margin-left: -15px;
+            margin-right: -15px;
+            max-width: calc(100% + 30px);
+        }
     }
 }
