@@ -7,14 +7,24 @@ const customSelect = () => {
 
 const saleSliderInit = () => {
     let saleSlider = new Swiper('.js-saleSlider', {
-        loop: true,
-        autoplay: {
-            delay: 3000,
-            pauseOnMouseEnter: true,
-            stopOnLastSlide: true,
-            disableOnInteraction: false,
+        loop: false,
+        autoplay: false,
+        breakpoints: {
+            576: {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    pauseOnMouseEnter: true,
+                    stopOnLastSlide: true,
+                    disableOnInteraction: false,
+                },
+            },
         },
         slidesPerView: 'auto',
+        navigation: {
+            nextEl: '.js-saleScrollNext',
+            prevEl: '.js-saleScrollPrev',
+        },
     });
 }
 
@@ -26,9 +36,20 @@ const casesSlidersInit = () => {
             prev = item.parentNode.querySelector('.js-casesScrollPrev');
 
         let slider = new Swiper(item, {
-            slidesPerView: 4,
             slidesPerGroup: 1,
             spaceBetween: 30,
+            slidesPerView: 1,
+            breakpoints: {
+                576: {
+                    slidesPerView: 2,
+                },
+                992: {
+                    slidesPerView: 3,
+                },
+                1200: {
+                    slidesPerView: 4,
+                },
+            }
         });
 
         next.addEventListener('click', () => {
@@ -84,9 +105,17 @@ const tabsInit = () => {
 
 const faqSliderInit = () => {
     let faqSlider = new Swiper('.js-faqSlider', {
-        slidesPerView: 5,
+        slidesPerView: 'auto',
         slidesPerGroup: 1,
         spaceBetween: 20,
+        breakpoints: {
+            992: {
+                slidesPerView: 4,
+            },
+            1200: {
+                slidesPerView: 5,
+            },
+        },
         navigation: {
             nextEl: '.js-faqScrollNext',
             prevEl: '.js-faqScrollPrev',
@@ -186,7 +215,7 @@ const initModal = () => {
             if (block) {
                 setTimeout(() => {
                     block.classList.add('is-active');
-                }, 300);
+                }, 100);
 
                 block.classList.add('is-visible');
             }
@@ -201,7 +230,7 @@ const initModal = () => {
             blocks.forEach(block => {
                 setTimeout(() => {
                     block.classList.remove('is-visible');
-                }, 300);
+                }, 100);
 
                 block.classList.remove('is-active');
             });
@@ -339,6 +368,82 @@ const comparisonCalcInit = () => {
     });
 }
 
+const burgerInit = () => {
+    let burger = document.querySelector('.js-burger'),
+        nav = document.querySelector('.js-nav');
+
+    burger.addEventListener('click', () => {
+        if (!burger.classList.contains('is-active')) {
+            setTimeout(() => {
+                nav.classList.add('is-active');
+            }, 100);
+
+            nav.classList.add('is-visible');
+            burger.classList.add('is-active');
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+        } else {
+            setTimeout(() => {
+                nav.classList.remove('is-active');
+            }, 100);
+
+            nav.classList.remove('is-visible');
+            burger.classList.remove('is-active');
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        }
+    });
+}
+
+const scroll = (elem, indent, duration) => {
+    indent = typeof indent == 'number' ? indent : 0;
+    duration = typeof duration == 'number' ? duration : 400;
+
+    let startPos = document.documentElement.scrollTop || document.body.scrollTop,
+        finishPos = elem ? elem.getBoundingClientRect().top + pageYOffset - indent : 0,
+        diffPos = finishPos - startPos,
+        startTime = new Date().getTime(),
+        finishTime = startTime + duration;
+
+    let anim = setInterval( () => {
+        let currentTime = new Date().getTime(),
+            newPos;
+
+        if (currentTime >= finishTime) {
+            newPos = finishPos;
+            clearInterval(anim);
+        } else {
+            let diffTime = finishTime - currentTime,
+                diffPrc =  diffTime / duration;
+            newPos = finishPos - (diffPos * diffPrc);
+        }
+
+        window.scrollTo(0, newPos);
+    },10);
+
+}
+
+const anchorsInit = () => {
+    let anchors = document.querySelectorAll('.js-anchor');
+
+    anchors.forEach(item => {
+        item.addEventListener('click', e => {
+            e.preventDefault();
+
+            let elem = document.querySelector(item.hash),
+                burger = document.querySelector('.js-burger'),
+                nav = document.querySelector('.js-nav');
+
+            nav.classList.remove('is-visible');
+            burger.classList.remove('is-active');
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+
+            scroll(elem);
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     customSelect();
     saleSliderInit();
@@ -347,7 +452,8 @@ document.addEventListener('DOMContentLoaded', () => {
     faqSliderInit();
     initPlayers();
     initModal();
-
+    burgerInit();
     comparisonCalcInit();
+    anchorsInit();
 });
 

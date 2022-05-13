@@ -10,6 +10,28 @@
     }
 
     &__link {
+
+        &_dssl img {
+            max-width: 192px;
+            width: 100%;
+        }
+
+        &_ozon img {
+            max-width: 102px;
+        }
+
+        &_wildberries img {
+            max-width: 192px;
+        }
+
+        &_ymarket img {
+            max-width: 230px;
+        }
+
+        &_sber img {
+            max-width: 134px;
+        }
+
         &:hover {
             img {
                 filter: grayscale(0);
@@ -21,26 +43,39 @@
         transition: .3s linear;
         filter: grayscale(100%);
         height: auto;
+    }
+}
 
-        &_dssl {
-            max-width: 192px;
-            width: 100%;
+@media screen and (max-width: $lg) {
+    .markets {
+        padding-top: 55px;
+
+        &__wrapper {
+            gap: 20px 60px;
+        }
+    }
+}
+
+@media screen and (max-width: $sm) {
+    .markets {
+        padding-top: 0;
+        padding-bottom: 38px;
+
+        &__wrapper {
+            gap: 20px 30px;
         }
 
-        &_ozon {
-            max-width: 102px;
+        &__link {
+            order: 2;
+
+            &_dssl {
+                order: 0;
+            }
+
+            &_ymarket {
+                order: 1;
+            }
         }
 
-        &_wildberries {
-            max-width: 192px;
-        }
-
-        &_ymarket {
-            max-width: 230px;
-        }
-
-        &_sber {
-            max-width: 134px;
-        }
     }
 }

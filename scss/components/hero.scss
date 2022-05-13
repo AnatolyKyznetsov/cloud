@@ -1,17 +1,10 @@
 .hero {
     background: var(--color-main-darkness)  url('../images/offer.png') no-repeat center / cover;
     position: relative;
+}
 
-    &:before {
-        // content: '';
-        height: 100%;
-        width: 75%;
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        background: var(--color-main-dark);
-        filter: blur(135.914px);
-        z-index: 0;
+@media screen and (max-width: $sm) {
+    .hero {
+        background: var(--color-main-darkness)  url('../images/offer_mob.png') no-repeat top center / cover;
     }
 }

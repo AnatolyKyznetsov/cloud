@@ -19,3 +19,11 @@
         }
     }
 }
+
+@media screen and (max-width: $sm) {
+    .video {
+        .vjs-poster {
+            border-radius: 0px;
+        }
+    }
+}

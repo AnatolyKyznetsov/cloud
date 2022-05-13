@@ -9,7 +9,7 @@
     &__head {
         display: flex;
         justify-content: space-between;
-        gap: 32;
+        gap: 32px;
         flex-wrap: wrap;
         align-items: flex-end;
         margin-bottom: 50px;
@@ -40,11 +40,11 @@
         }
 
         &[data-name="business"]:before {
-            background: url('../images/icons/building.svg') no-repeat center;
+            background: url('../images/icons/building.svg') no-repeat center / contain;
         }
 
         &[data-name="house"]:before {
-            background: url('../images/icons/house.svg') no-repeat center;
+            background: url('../images/icons/house.svg') no-repeat center / contain;
         }
 
         &:hover,
@@ -80,6 +80,54 @@
         &.is-disabled {
             opacity: 0.3;
             pointer-events: none;
+        }
+    }
+}
+
+@media screen and (max-width: $lg) {
+    .cases {
+        &__slider {
+            max-width: 765px;
+        }
+    }
+}
+
+@media screen and (max-width: $md) {
+    .cases {
+        &__slider {
+            max-width: 500px;
+        }
+    }
+}
+
+@media screen and (max-width: $sm) {
+    .cases {
+        padding: 27px 0;
+
+        &__tabs {
+            gap: 10px;
+        }
+
+        &__head {
+            gap: 22px;
+            margin-bottom: 32px;
+        }
+
+        &__slider {
+            max-width: 254px;
+        }
+
+        &__tab {
+            min-width: 170px;
+            max-width: 170px;
+            width: 100%;
+
+            &:before {
+                width: 18px;
+                min-width: 18px;
+                height: 26px;
+                margin-right: 20px;
+            }
         }
     }
 }

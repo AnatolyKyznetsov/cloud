@@ -41,3 +41,19 @@
         }
     }
 }
+
+@media screen and (max-width: $sm) {
+    .button {
+        height: 55px;
+        font-size: 16px;
+        padding: 0px 16px;
+
+        &__standard {
+            min-width: 175px;
+        }
+
+        &__border {
+            min-width: 162px;
+        }
+    }
+}

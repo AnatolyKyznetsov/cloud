@@ -77,3 +77,82 @@
         }
     }
 }
+
+@media screen and (max-width: $lg) {
+    .equipment {
+        &__wrapper {
+            flex-wrap: wrap;
+            gap: 30px 54px;
+            justify-content: center;
+        }
+
+        &__shop {
+            height: auto;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: $md) {
+    .equipment {
+        &__wrapper {
+            gap: 20px;
+        }
+
+        &__shop {
+            width: 254px;
+            height: 344px;
+        }
+    }
+}
+
+@media screen and (max-width: $sm) {
+    .equipment {
+        padding: 38px 0 10px;
+
+        &__wrapper {
+            gap: 10px;
+        }
+
+        &__title {
+            span {
+                display: block;
+            }
+        }
+
+        &__card {
+            min-width: 173px;
+            width: 173px;
+            height: 235px;
+            background-size: contain;
+            padding: 20px 15px;
+        }
+
+        &__shop {
+            min-width: 173px;
+            width: 173px;
+            height: 235px;
+            padding: 20px 10px 20px 20px;
+        }
+
+        &__shop-text {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        &__shop-link {
+            font-size: 16px;
+        }
+
+        &__card-name,
+        &__card-price {
+            font-size: 14px;
+        }
+
+        &__card-link {
+            right: 15px;
+            bottom: 15px;
+        }
+
+    }
+}

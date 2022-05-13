@@ -10,5 +10,63 @@
 
     &__banner {
         width: auto !important;
+        transition: .1s linear;
+        filter: grayscale(100%);
+
+        &:hover {
+            filter: grayscale(0);
+        }
+    }
+
+    &__scroll {
+        display: none;
+    }
+}
+
+@media screen and (max-width: $lg) {
+    .sale {
+        z-index: 0;
+    }
+}
+
+@media screen and (max-width: $sm) {
+    .sale {
+        &__banner {
+            max-height: 207px;
+
+            img {
+                width: auto;
+                height: 100%;
+            }
+        }
+
+        &__scroll {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-white);
+            width: 32px;
+            height: 32px;
+            border-radius: 100%;
+            color: var(--color-main-darkness);
+            padding-bottom: 2px;
+            opacity: 0.8;
+
+            &.swiper-button-disabled {
+                pointer-events: auto;
+            }
+
+            &.swiper-button-prev {
+                padding-right: 2px;
+            }
+
+            &.swiper-button-next {
+                padding-left: 2px;
+            }
+
+            &:after {
+                transform: scale(.3);
+            }
+        }
     }
 }

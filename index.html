@@ -16,13 +16,13 @@
         <div class="hero">
             <header class="header">
                 <div class="container">
-                    <div class="header__burger is-active">
+                    <div class="header__burger js-burger">
                         <div class="header__burger-line"></div>
                     </div>
                     <div class="header__logo">
                         <img src="./images/logo.svg" alt="">
                     </div>
-                    <ul class="nav header__nav">
+                    <ul class="nav header__nav js-nav">
                         <li class="nav__item">
                             <a href="javascript:void(0)" class="nav__link">
                                 Решения
@@ -34,22 +34,22 @@
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a href="#" class="nav__link">
+                            <a href="#tariff" class="nav__link js-anchor">
                                 Тарифы
                             </a>
                         </li>
-                        <li class="nav__item">
+                        <!-- <li class="nav__item">
                             <a href="#" class="nav__link">
                                 Видеоаналитика
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav__item">
                             <a href="javascript:void(0)" class="nav__link js-openModal" data-name="partner">
                                 Стать партнером
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a href="#" class="nav__link">
+                            <a href="#comparison" class="nav__link js-anchor">
                                 Калькулятор
                             </a>
                         </li>
@@ -105,9 +105,11 @@
                         <img src="./images/sale/sale_banner_4.png" alt="">
                     </a>
                 </div>
+                <div class="sale__scroll swiper-button-prev js-saleScrollPrev"></div>
+                <div class="sale__scroll swiper-button-next js-saleScrollNext"></div>
             </div>
         </section>
-        <section class="cases">
+        <section class="cases" id="cases">
             <div class="container js-tabs">
                 <div class="cases__head">
                     <h2 class="cases__title">
@@ -269,7 +271,6 @@
                 </div>
             </div>
         </section>
-
         <section class="equipment">
             <div class="container">
                 <h2 class="equipment__title">
@@ -328,27 +329,31 @@
                     </div>
                 </div>
             </div>
-        </section>
-
+        </section>`
         <section class="markets">
             <div class="container">
                 <div class="markets__wrapper">
-                    <a href="https://www.dssl.ru/products/kamery-videonablyudeniya/?set_filter=y&arrFilter_3173_85428289=Y" class="markets__link" target="_blank">
-                        <img src="./images/markets/dssl.svg" alt="DSSL" class="markets__image markets__image_dssl">
+                    <a href="https://www.dssl.ru/products/kamery-videonablyudeniya/?set_filter=y&arrFilter_3173_85428289=Y" class="markets__link markets__link_dssl" target="_blank">
+                        <img src="./images/markets/dssl.svg" alt="DSSL" class="markets__image">
                     </a>
-                    <a href="https://www.ozon.ru/brand/trassir-73326544/?seller=54696" class="markets__link" target="_blank">
-                        <img src="./images/markets/ozon.png" alt="OZON" class="markets__image markets__image_ozon">
+                    <a href="https://www.ozon.ru/brand/trassir-73326544/?seller=54696" class="markets__link markets__link_ozon" target="_blank">
+                        <img src="./images/markets/ozon.png" alt="OZON" class="markets__image">
                     </a>
-                    <a href="https://www.wildberries.ru/seller/53531?sort=popular&page=1&fbrand=77635" class="markets__link" target="_blank">
-                        <img src="./images/markets/wildberries.png" alt="Wildberries" class="markets__image markets__image_wildberries">
+                    <a href="https://www.wildberries.ru/seller/53531?sort=popular&page=1&fbrand=77635" class="markets__link markets__link_wildberries" target="_blank">
+                        <img src="./images/markets/wildberries.png" alt="Wildberries" class="markets__image">
                     </a>
-                    <a href="https://market.yandex.ru/business--dssl/890305" class="markets__link" target="_blank">
-                        <img src="./images/markets/ymarket.png" alt="Яндекс маркет" class="markets__image markets__image_ymarket">
+                    <a href="https://market.yandex.ru/business--dssl/890305" class="markets__link markets__link_ymarket" target="_blank">
+                        <img src="./images/markets/ymarket.png" alt="Яндекс маркет" class="markets__image">
                     </a>
-                    <a href="https://sbermegamarket.ru/shop/ooo-dssl-pervyy/catalog/umnyy-dom-i-bezopasnost/" class="markets__link" target="_blank">
-                        <img src="./images/markets/sber.svg" alt="Сбер маркет" class="markets__image markets__image_sber">
+                    <a href="https://sbermegamarket.ru/shop/ooo-dssl-pervyy/catalog/umnyy-dom-i-bezopasnost/" class="markets__link markets__link_sber" target="_blank">
+                        <img src="./images/markets/sber.svg" alt="Сбер маркет" class="markets__image">
                     </a>
                 </div>
+            </div>
+        </section>
+        <section class="tariff" id="tariff">
+            <div class="container">
+                
             </div>
         </section>
         <section class="possibility">
@@ -356,17 +361,17 @@
                 <h2 class="possibility__title">
                     Возможности <span class="title_blue">Trassir Cloud</span>
                 </h2>
-                <div class="possibility__wrapper">
+                <div class="possibility__wrapper js-tabs">
                     <div class="possibility__tabs">
-                        <div class="possibility__tab">
+                        <div class="possibility__tab js-tab is-active" data-name="free">
                             До 3х камер
                         </div>
-                        <div class="possibility__tab">
+                        <div class="possibility__tab js-tab" data-name="pay">
                             ∞  камер
                         </div>
                     </div>
                     <div class="possibility__inner">
-                        <div class="possibility__block">
+                        <div class="possibility__block js-tabsContent" data-name="free">
                             <h3 class="possibility__title_sm">
                                 Функционал <br>
                                 <span class="title_blue">по бесплатному тарифу</span> 
@@ -429,7 +434,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="possibility__block">
+                        <div class="possibility__block js-tabsContent is-hidden" data-name="pay">
                             <h3 class="possibility__title_sm">
                                 Функционал <br>
                                 <span class="title_blue">по платным тарифам</span> 
@@ -605,7 +610,7 @@
                         <p class="solutions__text-card">
                             Довольных <br> клиентов
                         </p>
-                        <a href="#" class="solutions__link">
+                        <a href="#cases" class="solutions__link js-anchor">
                             Кейсы клиентов
                         </a>
                     </li>
@@ -617,7 +622,7 @@
                         <p class="solutions__text-card">
                             Экспертизы развития <br> облачной инфрастуктуры
                         </p>
-                        <a href="#" class="solutions__link">
+                        <a href="#cases" class="solutions__link js-anchor">
                             Облачные решения
                         </a>
                     </li>
@@ -648,8 +653,7 @@
                 </ul>
             </div>
         </section>
-
-        <section class="comparison">
+        <section class="comparison" id="comparison">
             <div class="container">
                 <h2 class="comparison__title">
                     <span class="title_blue">Сравнение</span>
@@ -816,7 +820,6 @@
                 </div>
             </div>
         </section>
-
         <footer class="footer">
             <div class="container">
                 <div class="footer__menu">
@@ -853,17 +856,17 @@
                         </div>
                         <ul class="footer__menu-list">
                             <li class="footer__menu-item">
-                                <a href="#" class="footer__menu-link">
+                                <a href="#cases" class="footer__menu-link js-anchor">
                                     Решения
                                 </a>
                             </li>
-                            <li class="footer__menu-item">
+                            <!-- <li class="footer__menu-item">
                                 <a href="#" class="footer__menu-link">
                                     Видеоаналитика
                                 </a>
-                            </li>
+                            </li> -->
                             <li class="footer__menu-item">
-                                <a href="#" class="footer__menu-link">
+                                <a href="#tariff" class="footer__menu-link js-anchor">
                                     Тарифы 
                                 </a>
                             </li>

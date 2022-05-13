@@ -61,7 +61,6 @@
                 }
             }
         }
-
     }
 
     &__burger {
@@ -115,6 +114,41 @@
             &:after {
                 top: 50%;
                 transform: rotate(45deg); 
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $lg) {
+    .header {
+        .container {
+            flex-wrap: wrap;
+        }
+
+        &__nav {
+            order: 9;
+            width: 100%;
+        }
+
+        &__burger {
+            display: block;
+            position: relative;
+            margin-right: 31px;
+            z-index: 3;
+        }
+
+        &__logo {
+            margin-right: 0;
+            position: relative;
+            z-index: 3;
+        }
+
+        &__lang {
+            position: relative;
+            z-index: 3;
+
+            .select2 {
+                margin-left: 0;
             }
         }
     }

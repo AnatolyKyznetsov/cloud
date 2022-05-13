@@ -16,3 +16,20 @@
         margin-top: 96px;
     }
 }
+
+@media screen and (max-width: $lg) {
+    .offer {
+        z-index: 0;
+    }
+}
+
+@media screen and (max-width: $sm) {
+    .offer {
+        padding: 315px 0 81px;
+
+        &__btns {
+            flex-wrap: wrap;
+            margin-top: 41px;
+        }
+    }
+}

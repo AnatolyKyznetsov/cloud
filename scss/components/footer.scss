@@ -19,6 +19,7 @@
 
     &__menu-title {
         margin-bottom: 24px;
+        font-weight: 700;
     }
 
     &__menu-list {
@@ -76,5 +77,83 @@
         &:hover {
             opacity: 0.5;
         }
+    }
+}
+
+@media screen and (max-width: $lg) {
+    .footer {
+        &__menu {
+            gap: 40px;
+        }
+    }
+}
+
+@media screen and (max-width: $md) {
+    .footer {
+        padding-top: 101px;
+
+        .container {
+            flex-direction: column;
+            position: relative;
+            padding-top: 90px;
+        }
+
+        &__menu,
+        &__wrapper,
+        &__inner {
+            flex-direction: column;
+        }
+
+        &__apps {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__logo {
+            position: absolute;
+            top: -58px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+        &__menu-title,
+        &__menu-item,
+        &__menu-link {
+            text-align: center;
+        }
+
+        &__contacts {
+            text-align: center;
+            margin: 30px 0px 45px;
+        }
+    }
+}
+
+@media screen and (max-width: $sm) {
+    .footer {
+        &__logo {
+            width: 170px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        &__menu {
+            gap: 33px;
+        }
+
+        &__menu-title {
+            margin-bottom: 32px;
+        }
+
+        &__contacts {
+            margin: 10px 0px 23px;
+        }
+
+        &__apps {
+            gap: 16px;
+        } 
     }
 }

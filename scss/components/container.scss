@@ -3,3 +3,9 @@
     max-width: 1190px;
     padding: 0px 15px;
 }
+
+@media screen and (max-width: $lg) {
+    .container {
+        max-width: 900px;
+    }
+}

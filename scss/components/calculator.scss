@@ -110,3 +110,33 @@
         margin-top: 61px;
     }
 }
+
+@media screen and (max-width: $md) {
+    .calculator {
+        &__line,
+        &__archive {
+            flex-wrap: wrap;
+            padding-left: 0;
+        }
+
+        &__button {
+            margin-left: 0;
+        }
+    }
+}
+
+@media screen and (max-width: $sm) {
+    .calculator {
+        &__line {
+            gap: 20px 22px;
+        }
+
+        &__archive {
+            gap: 9px 37px;
+        }
+
+        &__button {
+            margin-top: 48px;
+        }
+    }
+}
