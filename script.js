@@ -443,6 +443,10 @@ const anchorsInit = () => {
             document.body.style.overflow = '';
             document.documentElement.style.overflow = '';
 
+            if (!elem) {
+                location.href = `/${item.hash}`
+            }
+
             scroll(elem);
         });
     });
