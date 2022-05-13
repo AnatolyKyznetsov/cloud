@@ -64,10 +64,11 @@ const casesSlidersInit = () => {
             if (slider.isBeginning) {
                 next.classList.remove('is-disabled');
                 prev.classList.add('is-disabled');
-            }
-
-            if (slider.isEnd) {
+            } else if (slider.isEnd) {
                 next.classList.add('is-disabled');
+                prev.classList.remove('is-disabled');
+            } else {
+                next.classList.remove('is-disabled');
                 prev.classList.remove('is-disabled');
             }
         });
