@@ -1906,8 +1906,13 @@ p {
   .comparison__calculation-item:first-child {
     margin-right: 15px;
   }
+  .comparison__calculation-item:last-child {
+    margin-right: 0 !important;
+  }
   .comparison__calculation-line:not(:first-child) .comparison__calculation-item:not(:first-child) {
     margin-right: 24px;
+    padding: 0 6px;
+    white-space: nowrap;
   }
   .comparison__wrapper .button__standard {
     max-width: 190px;

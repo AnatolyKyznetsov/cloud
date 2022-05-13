@@ -205,6 +205,10 @@
             &:first-child {
                 margin-right: 15px;
             }
+
+            &:last-child {
+                margin-right: 0 !important;
+            }
         }
 
         &__calculation-line {
@@ -212,6 +216,8 @@
                 .comparison__calculation-item {
                     &:not(:first-child) {
                         margin-right: 24px;
+                        padding: 0 6px;
+                        white-space: nowrap;
                     }
                 }
             }
@@ -223,8 +229,6 @@
             }
         }
 
-
-
-
     }
 }
+
