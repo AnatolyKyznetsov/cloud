@@ -189,6 +189,10 @@ p {
   h1, h2 {
     font-size: 34px;
   }
+
+  .title_blue {
+    white-space: normal;
+  }
 }
 .select2 {
   width: 208px !important;

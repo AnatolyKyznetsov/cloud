@@ -143,4 +143,10 @@ p {
     h1, h2 {
         font-size: 34px;
     }
+
+    .title {
+        &_blue {
+            white-space: normal;
+        }
+    }
 }
