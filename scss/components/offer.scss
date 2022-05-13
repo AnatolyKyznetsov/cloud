@@ -3,6 +3,10 @@
     position: relative;
     z-index: 1;
 
+    &__title {
+        margin-bottom: 0;
+    }
+
     &__text {
         font-weight: var(--font-weight-standard);
         margin-top: 7px;

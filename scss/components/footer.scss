@@ -65,7 +65,12 @@
     }
 
     &__logo {
-        opacity: 0.1;
+        width: 170px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
 
     &__apps {
@@ -131,15 +136,6 @@
 
 @media screen and (max-width: $sm) {
     .footer {
-        &__logo {
-            width: 170px;
-
-            img {
-                width: 100%;
-                height: auto;
-            }
-        }
-
         &__menu {
             gap: 33px;
         }

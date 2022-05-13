@@ -30,6 +30,10 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+h1 {
+    margin-bottom: 32px;
+}
+
 h1, h2 {
     font-weight: 300;
     font-size: 42px;
@@ -59,7 +63,16 @@ p {
 }
 
 .text {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 750px;
 
+    p {
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
 }
 
 .link {
@@ -101,6 +114,23 @@ p {
 
 .custom-select {
     opacity: 0;
+}
+
+.black-bg {
+    background: var(--color-main-darkness);
+}
+
+.full-screen {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 107px 1fr 284px;
+}
+
+@media screen and (max-width: $md) {
+    .full-screen {
+        min-height: auto;
+        display: block;
+    }
 }
 
 @media screen and (max-width: $sm) {

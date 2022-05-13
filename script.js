@@ -128,6 +128,10 @@ const initPlayers = () => {
         videoBlock = document.querySelector('.js-video'),
         player;
 
+    if (!videoBlock) {
+        return false;
+    }
+
     function initVideo() {
         player = videojs('my-video', {}, function onPlayerReady() {
             let timer,
