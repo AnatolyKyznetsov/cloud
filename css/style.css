@@ -2113,3 +2113,7 @@ p {
     max-width: calc(100% + 30px);
   }
 }
+.tariff {
+  padding: 64px 0 55px;
+  background: var(--color-main-darkness);
+}
