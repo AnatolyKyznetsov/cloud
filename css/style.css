@@ -599,7 +599,7 @@ p {
 }
 .header__lang .select2 .select2-selection--single {
   border: 1px solid var(--color-main-middle);
-  background-color: transparent;
+  background-color: var(--color-main-darkness);
   height: 30px;
   padding: 8px 12px;
 }
@@ -616,7 +616,7 @@ p {
 }
 .header__lang .custom-select__dropdown .select2-dropdown {
   border: 1px solid var(--color-main-middle);
-  background-color: transparent;
+  background-color: var(--color-main-darkness);
   border-top: 0;
   color: var(--color-main-middle);
 }
