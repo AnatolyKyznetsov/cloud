@@ -19,7 +19,7 @@
     &__calc {
         margin-top: 54px;
         padding: 65px 74px 56px 432px;
-        background: url('../images/comparison.png') no-repeat top center;
+        background: var(--color-main-darkness) url('../images/comparison.png') no-repeat top center;
         border-radius: var(--radius-standard);
 
         &.is-hidden {

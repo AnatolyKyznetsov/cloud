@@ -1,0 +1,20 @@
+.mini-banner {
+    padding: 26px 36px 64px;
+    border-radius: var(--radius-standard);
+    background: var(--color-main-darkness) url('../images/mini-banner.png') no-repeat bottom center;
+    max-width: 309px;
+    height: 198px;
+    position: relative;
+
+    &__text {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+
+    .circle-link {
+        position: absolute;
+        bottom: 25px;
+        right: 25px;
+    }
+}

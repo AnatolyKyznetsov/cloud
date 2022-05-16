@@ -243,13 +243,10 @@ const initModal = () => {
     });
 }
 
-const initCharts = () => {
+const initCharts = (labels, charts) => {
     let data = {
-        labels: ['1 год', '2 года', '3 года', '4 года', '5 лет'],
-        series: [
-            [125, 150, 175, 180, 350],
-            [50, 80, 100, 125, 150]
-        ]
+        labels: labels,
+        series: charts,
     };
 
     let options = {
@@ -359,7 +356,10 @@ const comparisonCalcInit = () => {
         setTimeout(() => {
             calc.classList.add('is-hidden');
             comparisonCalcResult.classList.remove('is-hidden');
-            initCharts();
+            initCharts(
+                ['1 год', '2 года', '3 года', '4 года', '5 лет'],
+                [ [125, 150, 175, 180, 350], [50, 80, 100, 125, 150] ]
+            );
         }, 500);
 
         setTimeout(() => {
@@ -371,6 +371,50 @@ const comparisonCalcInit = () => {
         calc.classList.remove('is-hidden');
         comparisonCalcResult.classList.add('is-hidden');
     });
+}
+
+const tariffCalcInit = () => {
+    let calc = document.querySelector('.js-tariffCalc');
+
+    if (!calc) {
+        return false;
+    }
+
+    $('.js-vidoeQualityRange').ionRangeSlider({
+        skin: 'round',
+        grid: true,
+        hide_min_max: true,
+        values: ['Низкое', 'Среднее', 'Высокое'],
+        onFinish: e => {
+            // $('.js-qualityRange').parent().find('input').val(e.from_value);
+        }
+    });
+
+    $('.js-typeRecRange').ionRangeSlider({
+        skin: 'round',
+        grid: true,
+        hide_min_max: true,
+        values: ['Низкое', 'Среднее', 'Высокое'],
+        onFinish: e => {
+            // $('.js-qualityRange').parent().find('input').val(e.from_value);
+        }
+    });
+
+    let calculatorArchive = calc.querySelector('.js-calculatorArchive'),
+        calculatorArchiveValue = calculatorArchive.parentNode.querySelector('input'),
+        calculatorArchiveItems = calculatorArchive.querySelectorAll('.js-calculatorArchiveItem');
+
+    calculatorArchiveItems.forEach(item => {
+        item.addEventListener('click', () => {
+            calculatorArchiveItems.forEach(elem => {
+                elem.classList.remove('is-active');
+            });
+
+            item.classList.add('is-active');
+        });
+    });
+
+    // let calculatorSubmit = calc.querySelector('.js-calculatorSubmit');
 }
 
 const burgerInit = () => {
@@ -425,7 +469,6 @@ const scroll = (elem, indent, duration) => {
 
         window.scrollTo(0, newPos);
     },10);
-
 }
 
 const anchorsInit = () => {
@@ -463,6 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initModal();
     burgerInit();
     comparisonCalcInit();
+    tariffCalcInit();
     anchorsInit();
 });
 

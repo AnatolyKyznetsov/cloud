@@ -1,4 +1,152 @@
 .tariff {
     padding: 64px 0 55px;
     background: var(--color-main-darkness);
+
+    &__wrapper {
+        max-width: 663px;
+        width: 100%;
+    }
+
+    &__block {
+        display: flex;
+        gap: 80px;
+        margin-top: 64px;
+    }
+
+    &__includes {
+
+    }
+
+    &__includes-title {
+        font-size: 18px;
+        margin-bottom: 24px;
+    }
+
+    &__includes-list {
+        max-width: 303px;
+    }
+
+    &__includes-item {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.15;
+        display: flex;
+        opacity: 0.3;
+        transition: .1s linear;
+
+        &:before {
+            content: '';
+            display: block;
+            min-width: 10px;
+            width: 10px;
+            height: 10px;
+            background: var(--color-white);
+            border-radius: 100%;
+            margin-right: 8px;
+            margin-top: 3px;
+        }
+
+        &.is-active {
+            opacity: 1;
+
+            &:before {
+                background: var(--color-conv-dark);
+            }
+        }
+ 
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+
+    &__bottom {
+        margin-top: 32px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__result {
+        margin-left: 182px;
+    }
+
+    &__result-bottom {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+    }
+
+    &__result-name {
+        margin-bottom: 32px;
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    &__result-price {
+        font-weight: 300;
+        font-size: 42px;
+    }
+
+    &__result-lettering {
+        display: block;
+        margin-top: 8px;
+        font-weight: 400;
+        font-size: 16px;
+        color: #{HexToRGBA($color-white, 0.3)};
+    }
+}
+
+@media screen and (max-width: $lg) {
+    .tariff {
+        &__block {
+            flex-direction: column;
+        }
+
+        &__bottom {
+            flex-direction: column-reverse;
+            gap: 40px;
+            align-items: flex-start;
+            margin-top: 60px;
+        }
+
+        &__result {
+            margin-left: 0;
+        }
+
+        &__result-bottom {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__wrapper {
+            max-width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: $sm) {
+    .tariff {
+        padding: 56px 0;
+
+        &__block {
+            margin-top: 32px;
+            gap: 40px;
+        }
+
+        &__includes-list {
+            max-width: 100%;
+        }
+
+        &__bottom {
+            margin-top: 40px;
+        }
+
+        &__result-name {
+            font-size: 28px;
+            margin-bottom: 24px;
+        }
+
+        &__result-bottom {
+            gap: 24px;
+        }
+    }
 }
