@@ -81,7 +81,8 @@
 
     &__archive {
         display: flex;
-        gap: 25px;
+        flex-wrap: wrap;
+        gap: 15px;
         margin-bottom: -6px;
     }
 
