@@ -79,9 +79,31 @@
     }
 
     &__app {
+        display: flex;
+        align-items: center;
+        width: 239px;
+        height: 50px;
+        padding: 7px 13px 7px;
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 1.2;
+        color: var(--color-white);
+        border: 1px solid var(--color-white);
+        border-radius: 5px;
+
         &:hover {
             opacity: 0.5;
         }
+    }
+
+    &__app-image {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        margin-right: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 

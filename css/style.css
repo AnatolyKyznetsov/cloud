@@ -1849,7 +1849,7 @@ p {
 .comparison__subtitle {
   color: var(--color-main-darkness);
   font-weight: 300;
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 20px;
 }
 .comparison__calc-wrapper {
@@ -2076,8 +2076,30 @@ p {
   display: flex;
   gap: 22px;
 }
+.footer__app {
+  display: flex;
+  align-items: center;
+  width: 239px;
+  height: 50px;
+  padding: 7px 13px 7px;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.2;
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+  border-radius: 5px;
+}
 .footer__app:hover {
   opacity: 0.5;
+}
+.footer__app-image {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  margin-right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: 1200px) {
