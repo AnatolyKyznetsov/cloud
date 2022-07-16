@@ -1,0 +1,105 @@
+.web-form {
+    padding: 16px;
+    color: var(--color-white);
+    border-radius: var(--radius-standard);
+    max-width: 600px;
+
+    &__title {
+        @extend .title__section;
+
+        // text-align: center;
+    }
+
+    &__description {
+        @extend .text-standard;
+
+        margin: 0 0 32px;
+        // text-align: center;
+    }
+
+    &__img {
+        max-height: 80px;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        margin: 0 auto 24px;
+        display: block;
+    }
+
+    &__message {
+        @extend .text-standard;
+
+        text-align: center;
+        color: var(--color-conv-light);
+        margin-top: 16px;
+
+        &:empty {
+            margin: 0;
+        }
+
+        &.error {
+            color: var(--color-error);
+        }
+
+        &:only-child {
+            margin-bottom: 16px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+
+    &__select {
+        select {
+            opacity: 0;
+        }
+    }
+
+    .label {
+        input:not([type="file"]),
+        input:not([type="radio"]),
+        input:not([type="checkbox"]) {
+            @extend .input;
+        }
+
+        textarea {
+            @extend .input;
+            @extend .input__area;
+        }
+
+        &.error {
+            input,
+            textarea,
+            .label__load-wrapper,
+            .custom-input__item,
+            .select2-selection {
+                border: 1px solid var(--color-error) !important;
+            }
+        }
+    }
+
+    .custom-input {
+        input {
+            width: 1px !important;
+        }
+    }
+
+    .select2 {
+        width: 100% !important;
+
+
+        .select2-selection--single {
+            border-radius: 16px;
+        }
+
+        &-dropdown {
+            border-radius: 16px;
+        }
+
+    }
+
+    .button {
+        @extend .button__standard;
+
+        width: 100%;
+    }
+}

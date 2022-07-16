@@ -1,7 +1,7 @@
 .input {
     background: var(--color-main-darkness);
     border: 1px solid var(--color-white);
-    border-radius: var(--radius-standard);
+    border-radius: 16px;
     width: 100%;
     font-weight: 300;
     font-size: 14px;
@@ -11,6 +11,11 @@
     color: var(--color-white);
     transition: .1s linear;
     font-family: var(--font-main);
+
+    &__area {
+        height: 150px;
+        resize: none;
+    }
 
     @include placeholder() {
         font-family: var(--font-main);

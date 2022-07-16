@@ -23,6 +23,7 @@
                 background-color: var(--color-main-darkness);
                 height: 30px;
                 padding: 8px 12px;
+                border-radius: 16px;
             }
 
             .select2-selection__rendered {
@@ -45,9 +46,12 @@
                 background-color: var(--color-main-darkness);
                 border-top: 0;
                 color: var(--color-main-middle);
+                border-radius: 0 0 16px 16px;
+
 
                 .select2-results__options {
                     padding-bottom: 4px;
+                    padding-top: 0;
                 }
 
                 .select2-results__option {

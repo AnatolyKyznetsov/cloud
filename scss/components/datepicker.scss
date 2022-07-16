@@ -1,0 +1,34 @@
+.datepicker {
+    background: var(--color-main-darkness);
+
+    .datepicker--pointer {
+        background: var(--color-main-darkness);
+        border-color: var(--color-white);
+    }
+}
+
+.datepickers-container {
+    .datepicker--day-name.-weekend- {
+        color: var(--color-conv-dark);
+    }
+
+    .-current- {
+        color: var(--color-conv-light);
+    }
+
+    .-in-range- {
+        background: var(--color-main-light);
+        color: var(--color-main-middle);
+    }
+
+    .-selected- {
+        &.-range-to-,
+        &.-range-from- {
+            background: var(--color-main-middle);
+
+            .-current- {
+                color: var(--color-white);
+            }
+        }
+    }
+}

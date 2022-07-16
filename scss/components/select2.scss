@@ -1,6 +1,40 @@
 .select2 {
     width: 208px !important;
 
+    .select2-selection--multiple {
+        display: flex;
+        flex-direction: row-reverse;
+        min-height: 50px;
+        height: auto;
+        background-color: var(--color-main-darkness);
+        border: 1px solid var(--color-white);
+        border-radius: 16px;
+
+        .select2-search--inline {
+            display: none;
+        }
+
+        .select2-selection__rendered {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            align-items: center;
+            padding: 4px 8px 0px;
+        }
+
+        .select2-selection__choice {
+            margin: 0;
+            background: transparent;
+            border: none;
+
+            &__remove {
+                border-right: none;
+                background: transparent !important;
+            }
+        }
+    }
+
     .select2-selection--single {
         border: 1px solid var(--color-white);
         background-color: var(--color-main-darkness);
@@ -37,6 +71,7 @@
 
         .select2-results__options {
             padding-bottom: 14px;
+            padding-top: 8px;
         }
 
         .select2-results__option {
@@ -51,6 +86,15 @@
     }
 
     &.select2-container {
+
+        &--default {
+            &.select2-container--focus {
+                .select2-selection--multiple {
+                    border: 1px solid var(--color-white);
+                }
+            } 
+        } 
+        
         &--open {
             .select2-selection__arrow {
                 transform: rotate(180deg);

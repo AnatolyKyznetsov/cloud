@@ -190,8 +190,11 @@ const initPlayers = () => {
             video.setAttribute('preload', 'auto');
             video.setAttribute('width', '1160');
             video.setAttribute('height', '578');
-            video.setAttribute('poster', slide.dataset.poster);
             video.dataset.setup = '{}';
+
+            if (slide.dataset.poster) {
+                video.setAttribute('poster', slide.dataset.poster);
+            }
 
             video.append(source);
 
@@ -243,180 +246,6 @@ const initModal = () => {
     });
 }
 
-const initCharts = (labels, charts) => {
-    let data = {
-        labels: labels,
-        series: charts,
-    };
-
-    let options = {
-        axisX: {
-            showGrid: false,
-            offset: 60,
-        },
-        axisY: {
-            offset: 40,
-
-            labelInterpolationFnc: function(value) {
-                return value + 'K';
-            }
-        }
-    };
-
-    new Chartist.Line('.js-comparisonChart', data, options);
-}
-
-const comparisonCalcInit = () => {
-    let calc = document.querySelector('.js-comparisonCalc');
-
-    if (!calc) {
-        return false;
-    }
-
-    let calculatorCounters = calc.querySelectorAll('.js-calculatorCounter'),
-        comparisonCalcResult = calc.parentNode.querySelector('.js-comparisonCalcResult'),
-        preloader = calc.parentNode.querySelector('.preloader'),
-        calcReset = comparisonCalcResult.querySelector('.js-calcReset');
-
-    calculatorCounters.forEach(item => {
-        let plus = item.querySelector('.js-calculatorCounterPluse'),
-            minus = item.querySelector('.js-calculatorCounterMinus'),
-            input = item.querySelector('input');
-
-        input.addEventListener('input', () => {
-            input.value = input.value == 0 ? 1 : input.value;
-            input.value = input.value.replace(/[^\d]/g,'');
-        });
-
-        plus.addEventListener('click', () => {
-            input.value++;
-        });
-
-        minus.addEventListener('click', () => {
-            input.value = input.value - 1 <= 1 ? 1 : input.value - 1;
-        });
-    });
-
-    $('.js-resolutionRange').ionRangeSlider({
-        skin: 'round',
-        grid: true,
-        hide_min_max: true,
-        values: ['2Мп', '4Мп', '5Мп', '6Мп', '8Мп', '12Мп'],
-        onFinish: e => {
-            $('.js-resolutionRange').parent().find('input').val(e.from_value);
-        }
-    });
-
-    $('.js-qualityRange').ionRangeSlider({
-        skin: 'round',
-        grid: true,
-        hide_min_max: true,
-        values: ['Низкое', 'Среднее', 'Высокое'],
-        onFinish: e => {
-            $('.js-qualityRange').parent().find('input').val(e.from_value);
-        }
-    });
-
-    let calculatorArchive = calc.querySelector('.js-calculatorArchive'),
-        calculatorArchiveValue = calculatorArchive.parentNode.querySelector('input'),
-        calculatorArchiveItems = calculatorArchive.querySelectorAll('.js-calculatorArchiveItem');
-
-    calculatorArchiveItems.forEach(item => {
-        item.addEventListener('click', () => {
-            calculatorArchiveItems.forEach(elem => {
-                elem.classList.remove('is-active');
-            });
-
-            item.classList.add('is-active');
-            calculatorArchiveValue.value = item.textContent.trim();
-        });
-    });
-
-    $('.js-calcSelect').select2({
-        minimumResultsForSearch: Infinity,
-    });
-
-    let calculatorSubmit = calc.querySelector('.js-calculatorSubmit');
-
-    calculatorSubmit.addEventListener('click', () => {
-
-        let data = {
-            resolution: calc.querySelector('[data-calc="resolution"]').value,
-            quality: calc.querySelector('[data-calc="quality"]').value,
-            archive: calc.querySelector('[data-calc="archive"]').value,
-            object_type: calc.querySelector('[data-calc="object_type"]').value,
-            objects_amount: calc.querySelector('[data-calc="objects_amount"]').value,
-            cameras_per_object: calc.querySelector('[data-calc="cameras_per_object"]').value,
-        };
-
-        console.log(data);
-
-        preloader.classList.remove('is-hidden');
-
-        setTimeout(() => {
-            calc.classList.add('is-hidden');
-            comparisonCalcResult.classList.remove('is-hidden');
-            initCharts(
-                ['1 год', '2 года', '3 года', '4 года', '5 лет'],
-                [ [125, 150, 175, 180, 350], [50, 80, 100, 125, 150] ]
-            );
-        }, 500);
-
-        setTimeout(() => {
-            preloader.classList.add('is-hidden');
-        }, 1000);
-    });
-
-    calcReset.addEventListener('click', () => {
-        calc.classList.remove('is-hidden');
-        comparisonCalcResult.classList.add('is-hidden');
-    });
-}
-
-const tariffCalcInit = () => {
-    let calc = document.querySelector('.js-tariffCalc');
-
-    if (!calc) {
-        return false;
-    }
-
-    $('.js-vidoeQualityRange').ionRangeSlider({
-        skin: 'round',
-        grid: true,
-        hide_min_max: true,
-        values: ['Низкое', 'Среднее', 'Высокое'],
-        onFinish: e => {
-            // $('.js-qualityRange').parent().find('input').val(e.from_value);
-        }
-    });
-
-    $('.js-typeRecRange').ionRangeSlider({
-        skin: 'round',
-        grid: true,
-        hide_min_max: true,
-        values: ['Низкое', 'Среднее', 'Высокое'],
-        onFinish: e => {
-            // $('.js-qualityRange').parent().find('input').val(e.from_value);
-        }
-    });
-
-    let calculatorArchive = calc.querySelector('.js-calculatorArchive'),
-        calculatorArchiveValue = calculatorArchive.parentNode.querySelector('input'),
-        calculatorArchiveItems = calculatorArchive.querySelectorAll('.js-calculatorArchiveItem');
-
-    calculatorArchiveItems.forEach(item => {
-        item.addEventListener('click', () => {
-            calculatorArchiveItems.forEach(elem => {
-                elem.classList.remove('is-active');
-            });
-
-            item.classList.add('is-active');
-        });
-    });
-
-    // let calculatorSubmit = calc.querySelector('.js-calculatorSubmit');
-}
-
 const burgerInit = () => {
     let burger = document.querySelector('.js-burger'),
         nav = document.querySelector('.js-nav');
@@ -446,7 +275,7 @@ const burgerInit = () => {
 
 const scroll = (elem, indent, duration) => {
     indent = typeof indent == 'number' ? indent : 0;
-    duration = typeof duration == 'number' ? duration : 400;
+    duration = typeof duration == 'number' ? duration : 800;
 
     let startPos = document.documentElement.scrollTop || document.body.scrollTop,
         finishPos = elem ? elem.getBoundingClientRect().top + pageYOffset - indent : 0,
@@ -505,8 +334,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initPlayers();
     initModal();
     burgerInit();
-    comparisonCalcInit();
-    tariffCalcInit();
     anchorsInit();
 });
 
